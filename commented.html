@@ -1,0 +1,37 @@
+<!-- minifiers hate some of the manual stuff I do to final.html... -->
+<h1><pre id=p></pre>
+<script>
+// "templating" (tm)
+e='|<b onclick=c(this)>＿</b>';
+d=e+e+e+`|
+`;
+p[$='innerHTML']=d+d+d;
+b=p.children;
+[x,o]='❌⭕';
+c=e=>e[$]=='＿'&&
+  ([x,o]=[o,e[$]=x],
+  // every 3 chars is a win possibility
+  [...'012036048345678147258246'].some(
+    (i,j,_)=>
+      (a = j%3 ?
+        // 2nd/3rd cell
+        // if match a-=1
+        // else +0
+        a-(b[i][$]==b[_[j-1]][$]) :
+         // first cell
+        // if it isn't '＿' a=2,else 3
+        b[i][$]=='＿'|2
+      )?0:(p[$]=o+' won')
+    ))
+</script>
+<!-- what follows is for inspection -->
+</h1>
+<h1>Commented version, not final product.</h1>
+<a href="./final.html">final product</a>
+<details><summary>code</summary>
+  <pre><code id=code>
+    <script>
+      code.innerText = document.querySelector('script').textContent;
+    </script>
+  </code></pre>
+</details>
